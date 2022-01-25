@@ -15,23 +15,18 @@ portoMapBackgroundImage.src = "images/porto_map.png";
 let schoolLogo = new Image();
 schoolLogo.src = "images/school_logo.png"
 
+let barMap = new Image();
+barMap = "images/bar_logo,png"
 
-let logImage = new Image();
-logImage.src = "images/log.png";
 
-let fireballImage = new Image();
-fireballImage.src = "images/fireball.png";
 
 const BACKGROUND = 0;
 const WIN_LOSE_MESSAGE = 1;
 const MAP_LOGOS = 2;
+const BAR_MAP = 3
 
 /* Instead of using gameObject[], we can declare our own gameObject variables */
-let bat = null; // we cannot initialise gameObjects yet, as they might require images that have not yet loaded
-let target = null;
 
-let fireballs = [];
-let numberOfBulletsFired = 0; // no bullets fired yet
 /******************* END OF Declare game specific data and functions *****************/
 
 
@@ -61,51 +56,22 @@ function playGame()
 
     gameObjects[MAP_LOGOS] =  new StaticImage(schoolLogo, 150, 150, 65, 90);
 
-    bat = new Bat(0, canvas.height - 10, 125);
-    target = new Target(logImage, 100, 0, 100);
+    gameObjects[BAR_MAP] = new StaticImage(barMap, 0, 0, canvas.width, canvas.height);
+
+    gameObjects[BAR_MAP].stopAndHide()
+  
     /* END OF game specific code. */
 
 
     /* Always create a game that uses the gameObject array */
-    let game = new FireballCanvasGame();
+    let game = new CanvasGame();
 
     /* Always play the game */
     game.start();
 
-    
-    /* If they are needed, then include any game-specific mouse and keyboard listners */
-    document.addEventListener("keydown", function (e)
-    {
-        var stepSize = 10;
 
-        if (e.keyCode === 37)  // left
-        {
-            bat.changeX(-stepSize);
-        }
-        else if (e.keyCode === 39) // right
-        {
-            bat.changeX(stepSize);
-        }
-        else if (e.keyCode === 32) // space bar
-        {
-            fireballs[numberOfBulletsFired] = new Fireball(fireballImage, bat.getCentreX());
-            fireballs[numberOfBulletsFired].start();
-            numberOfBulletsFired++;
-            bat.setWidth(bat.getWidth() + 10);
-        }
-    });
-   
-// console.log(gameObjects)
-//     canvas.addEventListener('click', function(e)
-//     {
-//         var index = gameObjects.indexOf(e.target)
-        
-//   console.log(gameObjects.indexOf(e.target))
-//         if(index === 2) { // if no image was clicked
-//           console.log("HERE");
-//         }
-//     });
-
+    let x = document.getElementById("bar_menu");
+    x.style.display = "none";
 
     document.getElementById("gameCanvas").addEventListener("click", function (e)
     {
@@ -118,9 +84,33 @@ function playGame()
         {
                 if (gameObjects[i].pointIsInsideBoundingRectangle(mouseX, mouseY))
                 {
+
+
                     if(i === 2)
                     {
-                        console.log("BOOM")
+                        {
+	
+                            // Select the element with id "theDIV"
+                            let x = document.getElementById("game_menu");
+                            
+                            if (x.style.display != "none") 
+                            {
+                            
+                              // Show the hidden element
+                              x.style.display = "none";
+                            }
+
+                            let y = document.getElementById("bar_menu");
+
+                            if (y.style.display === "none") 
+                            {
+                                gameObjects[BACKGROUND].stopAndHide()
+                            
+                              // Show the hidden element
+                              y.style.display = "block";
+                      
+                            }
+                        }
                     }
                   
                 }
@@ -128,21 +118,6 @@ function playGame()
         }
         
     });
-
-
-    // function getMousePosition(canvas, event) {
-    //     let rect = canvas.getBoundingClientRect();
-    //     let x = event.clientX - rect.left;
-    //     let y = event.clientY - rect.top;
-    //     console.log("Coordinate x: " + x, 
-    //                 "Coordinate y: " + y);
-    // }
-  
-    // let canvasElem = document.querySelector("canvas");
-      
-    // canvasElem.addEventListener("mousedown", function(e)
-    // {
-    //     getMousePosition(canvasElem, e);
-    // });
     
+
 }

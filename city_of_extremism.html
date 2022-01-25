@@ -25,8 +25,6 @@
         <script src="js/fireball_game.js" type="text/javascript"></script>
 
         <!-- Include any classes that extend from GameObject that are used in this game -->
-        <script src="js/FireballCanvasGame.js" type="text/javascript"></script>
-        <script src="js/Fireball.js" type="text/javascript"></script>
         <script src="js/Bat.js" type="text/javascript"></script>
         <script src="js/Target.js" type="text/javascript"></script>
         <script src="js/StaticImage.js" type="text/javascript"></script>
@@ -40,10 +38,22 @@
     <body>
         <div id="gameContainer"> <!-- having a container will allow us to have a game that includes elements that are outside of the canvas -->
             <canvas id="gameCanvas" tabindex="1"></canvas>
+
+            <div id="game_menu" class="menu hidden">
+                <div class = "container">
+                    <p>Use the left and right arrows to move the bat.<br>
+                Use the space bar to fire.</p>    
+                </div>
+              </div> 
+              
+              <!-- Pause Menu -->
+              <div id="bar_menu" class="menu hidden">
+                <p>BOOOM!!!!</p> 
+              </div>
+  
             <!-- ***************************************************************************** -->
             <!-- *************** THE CODE BELOW CAN BE DIFFERENT FOR EACH GAME *************** -->
-            <p>Use the left and right arrows to move the bat.<br>
-                Use the space bar to fire.</p>         
+                
             <!-- ************************* END OF GAME SPECIFIC CODE ************************* -->
             <!-- ***************************************************************************** -->
             
