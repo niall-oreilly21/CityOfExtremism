@@ -61,10 +61,9 @@ function playGame()
 
     gameObjects[MAP_LOGOS] =  new StaticImage(schoolLogo, 150, 150, 65, 90);
 
-
     gameObjects[BAR_MAP] = new StaticImage(barMap, 0, 0, canvas.width, canvas.height);   
  
-    gameObjects[JEAN_PIERRE] =  new StaticImage(barMan, 600, 300, 200, 200);
+    gameObjects[JEAN_PIERRE] =  new StaticImage(barMan, 500, 350, 200, 200);
 
     gameObjects[SOPHIE] =  new StaticImage(sophie, 300, 365, 200, 290);
     
