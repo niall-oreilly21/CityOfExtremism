@@ -64,9 +64,9 @@ function playGame()
 
     gameObjects[BAR_MAP] = new StaticImage(barMap, 0, 0, canvas.width, canvas.height);   
  
-    gameObjects[JEAN_PIERRE] =  new StaticImage(barMan, 150, 150, 265, 200);
+    gameObjects[JEAN_PIERRE] =  new StaticImage(barMan, 600, 300, 200, 200);
 
-    gameObjects[SOPHIE] =  new StaticImage(sophie, 190, 380, 215, 250);
+    gameObjects[SOPHIE] =  new StaticImage(sophie, 300, 365, 200, 290);
     
   
     /* END OF game specific code. */
