@@ -36,14 +36,16 @@ sophie.src = "images/sophie.png"
 
 
 const BACKGROUND = 0;
-const WIN_LOSE_MESSAGE = 1;
-const BAR_LOGO = 2;
-const BAR_MAP = 3;
-const JEAN_PIERRE =  4;
-const SOPHIE = 5;
-const OFFICE_LOGO = 6;
-const RESTAURANT_LOGO = 7;
-const SCHOOL_LOGO = 8;
+const OFFICE_LOGO = 1;
+const RESTAURANT_LOGO = 2;
+const SCHOOL_LOGO = 3;
+const BAR_LOGO = 4;
+
+
+const BAR_MAP = 5;
+const JEAN_PIERRE =  6;
+const SOPHIE = 7;
+const WIN_LOSE_MESSAGE = 8;
 /* Instead of using gameObject[], we can declare our own gameObject variables */
 
 /******************* END OF Declare game specific data and functions *****************/
@@ -125,11 +127,20 @@ function playGame()
                 {
 
 
-                    if(i === 2)
+                    if(i === BAR_MAP)
                     {
                         {
                             
                         gameObjects[BAR_MAP].start();
+
+                         for (let i = 0; i < 5; i++)
+                        {
+                          gameObjects[i].stopAndHide();
+                        }
+                        // gameObjects[BAR_LOGO].stopAndHide();
+                        // gameObjects[RESTAURANT_LOGO].stopAndHide();
+                        // gameObjects[OFFICE_LOGO].stopAndHide();
+                        // gameObjects[SCHOOL_LOGO].stopAndHide();
 	
                             // Select the element with id "theDIV"
                             let x = document.getElementById("game_menu");
@@ -170,10 +181,19 @@ function playGame()
 let button = document.getElementById("unpauseGame")
     button.addEventListener("click", function ()
     {
+
+
+      for (let i = 0; i < 5; i++)
+      {
+        gameObjects[i].start();
+      }
+
         gameObjects[BAR_MAP].stopAndHide();
         gameObjects[SOPHIE].stopAndHide();
         gameObjects[JEAN_PIERRE].stopAndHide();
-        gameObjects[BACKGROUND].start();
+
+
+    
 
 
         let x = document.getElementById("game_menu");
