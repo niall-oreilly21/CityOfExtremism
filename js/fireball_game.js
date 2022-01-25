@@ -16,15 +16,20 @@ let schoolLogo = new Image();
 schoolLogo.src = "images/school_logo.png"
 
 let barMap = new Image();
-barMap = "images/bar_logo,png"
+barMap.src = "images/bar.png"
 
+let barMan = new Image()
+barMan.src = "images/jean_pierre.png"
 
+let sophie = new Image()
+sophie.src = "images/sophie.png"
 
 const BACKGROUND = 0;
 const WIN_LOSE_MESSAGE = 1;
 const MAP_LOGOS = 2;
-const BAR_MAP = 3
-
+const BAR_MAP = 3;
+const JEAN_PIERRE =  4;
+const SOPHIE = 5;
 /* Instead of using gameObject[], we can declare our own gameObject variables */
 
 /******************* END OF Declare game specific data and functions *****************/
@@ -56,9 +61,13 @@ function playGame()
 
     gameObjects[MAP_LOGOS] =  new StaticImage(schoolLogo, 150, 150, 65, 90);
 
-    gameObjects[BAR_MAP] = new StaticImage(barMap, 0, 0, canvas.width, canvas.height);
 
-    gameObjects[BAR_MAP].stopAndHide()
+    gameObjects[BAR_MAP] = new StaticImage(barMap, 0, 0, canvas.width, canvas.height);   
+ 
+    gameObjects[JEAN_PIERRE] =  new StaticImage(barMan, 150, 150, 265, 200);
+
+    gameObjects[SOPHIE] =  new StaticImage(sophie, 190, 380, 215, 250);
+    
   
     /* END OF game specific code. */
 
@@ -69,6 +78,11 @@ function playGame()
     /* Always play the game */
     game.start();
 
+    gameObjects[BAR_MAP].stopAndHide()
+
+    gameObjects[JEAN_PIERRE].stopAndHide();
+
+    gameObjects[SOPHIE].stopAndHide();
 
     let x = document.getElementById("bar_menu");
     x.style.display = "none";
@@ -89,6 +103,8 @@ function playGame()
                     if(i === 2)
                     {
                         {
+                            
+                        gameObjects[BAR_MAP].start();
 	
                             // Select the element with id "theDIV"
                             let x = document.getElementById("game_menu");
@@ -104,10 +120,15 @@ function playGame()
 
                             if (y.style.display === "none") 
                             {
-                                gameObjects[BACKGROUND].stopAndHide()
                             
+
                               // Show the hidden element
                               y.style.display = "block";
+
+                              
+        gameObjects[JEAN_PIERRE].start();
+
+        gameObjects[SOPHIE].start();
                       
                             }
                         }
@@ -118,6 +139,87 @@ function playGame()
         }
         
     });
+
+
+let seconds = 0;
+let minutes = 3;
+let intervalTimer;
+let intervalTime = 1000;
+
+
+//Timer is 3 minutes long
+let totalSeconds = 180;
+
+    if(seconds > 9)
+    {
+        ctx.fillText(` ${minutes}:${seconds}  `, 200, 80)  
+    }
+    else
+    {
+        ctx.fillText(` ${minutes}:0${seconds}  `, 200, 80)  
+    }
     
+    console.log(seconds)
+
+    startIntervalTimer
+    function startIntervalTimer() 
+    {
+    
+        // Store a handle to the timer 
+        intervalTimer = setInterval(intervalFunction, intervalTime);
+    }
+
+    function intervalFunction() 
+    {
+        totalSeconds--;
+        minutes = Math.floor(totalSeconds / 60);
+        seconds = totalSeconds % 60;
+
+        if(seconds === 0)
+        {
+            console.log("HELLo")
+        }
+        stopIntervalTimer(); 
+    }
+
+    
+    function stopIntervalTimer() 
+    {
+        // Stop the interval timer
+        clearInterval(intervalTimer);    
+    }
+
+let button = document.getElementById("unpauseGame")
+    button.addEventListener("click", function ()
+    {
+        console.log("HERE")
+        gameObjects[BAR_MAP].stopAndHide();
+        gameObjects[BACKGROUND].start();
+
+
+        let x = document.getElementById("game_menu");
+                            
+        if (x.style.display === "none") 
+        {
+        
+          // Show the hidden element
+          x.style.display = "block";
+        }
+
+        let y = document.getElementById("bar_menu");
+
+        if (y.style.display != "none") 
+        {
+        
+          // Show the hidden element
+          y.style.display = "none";
+  
+        }
+    });
+
 
 }
+
+
+
+

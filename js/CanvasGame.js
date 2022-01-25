@@ -34,6 +34,7 @@ class CanvasGame
 
         /* recursively call playGameLoop() */
         requestAnimationFrame(this.playGameLoop.bind(this));
+
     }
 
     render()

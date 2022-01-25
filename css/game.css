@@ -14,12 +14,20 @@
 {
     /* the canvas styling usually does not change */
     outline:1px solid darkgrey;
-    width:600px;
+    width:800px;
     height:600px;
     margin:0 auto;
     display: block;
-    
 }
+
+body
+{
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 
 
 #loadingMessage
@@ -32,5 +40,51 @@
     font-size:50px;
 }
 
+.button 
+{
+    font-family : button_font;
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 80px;
+    color: white;
+    font-weight: bold;
+    line-height: 80px;
+    text-shadow: 1px 1px 0 black;
+    background-image: linear-gradient(to bottom, #2B5754 0%, blue 100%);
+    border: 3px solid white;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+}
 
 
+li 
+{
+    padding: 10px 0;
+    list-style-type: none;
+}
+
+.button:hover 
+{
+    font-family : button_font;
+    background-color: #0d63b3;
+    background-image: linear-gradient(to bottom, #0d63b3 0%, #0d63b3 100%);
+}
+
+#leftButton
+{
+    float: left;
+
+}
+
+#rightButton
+{
+    float: right;
+}
+
+#bar_menu
+{
+    border: 2px solid white;
+    border-radius: 10px;
+}
