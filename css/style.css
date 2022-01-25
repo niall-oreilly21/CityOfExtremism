@@ -1,0 +1,70 @@
+.accuse-folder {
+  background-color: #f4e5bd;
+  width: 600px;
+  height: 450px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+}
+
+#gameContainer
+{
+    /* style the gameContainer if the game includes non-canvas elements */
+    margin-top: 200px;
+    margin-left: 500px;   
+}
+
+.accuse-paper {
+  background-color: whitesmoke;
+  width: 260px;
+  height: 400px;
+  position: relative;
+}
+
+.accuse-paper img {
+  width: 120px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/*
+    Fonts
+    https://www.fontspace.com/category/bar
+*/
+
+@font-face {
+  font-family: disneyBold;
+  src: url(../fonts/Waltograph/waltograph42.ttf);
+}
+@font-face {
+  font-family: disneyTitle;
+  src: url(../fonts/Waltograph/NewWaltDisneyFontRegular-BPen.ttf);
+}
+
+@font-face {
+  font-family: disneySubHeading;
+  src: url(../fonts/Waltograph/NewWaltDisneyUi-8YdA.ttf);
+}
+
+@font-face {
+  font-family: heading_font;
+  src: url(../fonts/heading_font.ttf);
+}
+
+@font-face {
+  font-family: heading_2_font;
+  src: url(../fonts/heading_2_font.ttf);
+}
+
+@font-face {
+  font-family: paragraph_font;
+  src: url(../fonts/paragraph_font.ttf);
+}
+
+@font-face {
+  font-family: button_font;
+  src: url(../fonts/button_font.ttf);
+}

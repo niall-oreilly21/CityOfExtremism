@@ -194,10 +194,7 @@ function playGame()
 
   document.getElementById("gameCanvas").addEventListener("click", function (e) {
     audio.pause();
-    audio = new Audio("music/bar_music.wav");
-    
-    //audio.loop = true;
-    audio.play();
+   
 
     
     let canvasBoundingRectangle = document
@@ -237,6 +234,10 @@ function playGame()
 
         if (i === BAR_LOGO) {
           gameObjects[BAR_MAP].start();
+          audio = new Audio("music/bar_music.wav");
+    
+          //audio.loop = true;
+          audio.play();
           gameObjects[TIMER].startInterval()
           for (let i = 0; i < 5; i++) {
             gameObjects[i].stopAndHide();
