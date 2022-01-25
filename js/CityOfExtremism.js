@@ -16,7 +16,7 @@ let schoolLogo = new Image();
 schoolLogo.src = "images/icon_school.png"
 
 let restaurantLogo = new Image();
-restaurantLogo.src = "images/icon_school.png"
+restaurantLogo.src = "images/icon_restaurant.png"
 
 let barLogo = new Image();
 barLogo.src = "images/icon_bar.png"
@@ -42,6 +42,8 @@ const BAR_MAP = 3;
 const JEAN_PIERRE =  4;
 const SOPHIE = 5;
 const OFFICE_LOGO = 6;
+const RESTAURANT_LOGO = 7;
+const SCHOOL_LOGO = 8;
 /* Instead of using gameObject[], we can declare our own gameObject variables */
 
 /******************* END OF Declare game specific data and functions *****************/
@@ -72,6 +74,12 @@ function playGame()
     gameObjects[BACKGROUND] = new StaticImage(portoMapBackgroundImage, 0, 0, canvas.width, canvas.height);
 
     gameObjects[BAR_LOGO] =  new StaticImage(barLogo, 150, 150, 65, 90);
+    
+    gameObjects[SCHOOL_LOGO] = new StaticImage(schoolLogo, 200, 200, 65, 90);
+
+    gameObjects[RESTAURANT_LOGO] = new StaticImage(restaurantLogo, 300, 300, 65, 90);
+
+    gameObjects[OFFICE_LOGO] = new StaticImage(officeLogo, 400, 400, 65, 90);
 
     gameObjects[BAR_MAP] = new StaticImage(barMap, 0, 0, canvas.width, canvas.height);   
  
