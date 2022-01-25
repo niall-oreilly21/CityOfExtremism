@@ -19,19 +19,21 @@ class Timer extends GameObject {
 
     ctx.font = this.fontSize + "px " + this.font;
     this.width = ctx.measureText(this.timer).width;
-    if (this.x === -1) {
-      this.x = (canvas.width - this.width) / 2;
-    }
+
+    this.timeInterval = setInterval(this.countDown.bind(this), 1000);
+    
   }
 
-  updateState() {
+
+  countDown()
+  {
     this.timer--;
-    console.log(this.timer);
 
     if (this.timer === 0) {
-      this.stop();
+      clearInterval(this.timeInterval)
     }
   }
+
 
   render() {
     ctx.fillStyle = this.colour;
