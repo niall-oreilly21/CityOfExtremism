@@ -13,16 +13,16 @@ let portoMapBackgroundImage = new Image();
 portoMapBackgroundImage.src = "images/porto_map.png";
 
 let schoolLogo = new Image();
-schoolLogo.src = "images/school_logo.png"
+schoolLogo.src = "images/icon_school.png"
 
 let restaurantLogo = new Image();
-schoolLogo.src = "images/restaurant_logo.png"
+restaurantLogo.src = "images/icon_school.png"
 
 let barLogo = new Image();
-schoolLogo.src = "images/bar_logo.png"
+barLogo.src = "images/icon_bar.png"
 
 let officeLogo = new Image()
-office.src = "images/station_logo.png"
+officeLogo.src = "images/icon_police.png"
 
 let barMap = new Image();
 barMap.src = "images/bar.png"
@@ -37,7 +37,7 @@ sophie.src = "images/sophie.png"
 
 const BACKGROUND = 0;
 const WIN_LOSE_MESSAGE = 1;
-const MAP_LOGOS = 2;
+const BAR_LOGO = 2;
 const BAR_MAP = 3;
 const JEAN_PIERRE =  4;
 const SOPHIE = 5;
@@ -71,7 +71,7 @@ function playGame()
 
     gameObjects[BACKGROUND] = new StaticImage(portoMapBackgroundImage, 0, 0, canvas.width, canvas.height);
 
-    gameObjects[MAP_LOGOS] =  new StaticImage(schoolLogo, 150, 150, 65, 90);
+    gameObjects[BAR_LOGO] =  new StaticImage(barLogo, 150, 150, 65, 90);
 
     gameObjects[BAR_MAP] = new StaticImage(barMap, 0, 0, canvas.width, canvas.height);   
  
