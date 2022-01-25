@@ -123,13 +123,6 @@ function playGame() {
   var audio = new Audio("music/start_menu_music.wav");
   audio.play();
 
-  const timer = new Timer();
-
-  timer.start();
-  /* END OF game specific code. */
-
-  timer.startIntervalTimer();
-
   /* END OF game specific code. */
 
   /* Always create a game that uses the gameObject array */
@@ -148,6 +141,10 @@ function playGame() {
   x.style.display = "none";
 
   document.getElementById("gameCanvas").addEventListener("click", function (e) {
+    audio.pause();
+    audio = new Audio("music/bar_music.wav");
+    audio.loop = true;
+    audio.play();
     let canvasBoundingRectangle = document
       .getElementById("gameCanvas")
       .getBoundingClientRect();
@@ -210,81 +207,32 @@ function playGame() {
     }
   });
 
-  let x = document.getElementById("bar_menu");
-  x.style.display = "none";
+  let button = document.getElementById("unpauseGame")
+    button.addEventListener("click", function ()
+    {
+      audio.pause();
+      audio = new Audio("music/start_menu_music.wav");
+      audio.play();
 
-  document.getElementById("gameCanvas").addEventListener("click", function (e) {
-    audio = new Audio("music/bar_music.wav");
-    audio.loop = true;
-    audio.play();
-    let canvasBoundingRectangle = document
-      .getElementById("gameCanvas")
-      .getBoundingClientRect();
-    let mouseX = e.clientX - canvasBoundingRectangle.left;
-    let mouseY = e.clientY - canvasBoundingRectangle.top;
-
-    for (let i = 0; i < gameObjects.length; i++) {
-      if (gameObjects[i].pointIsInsideBoundingRectangle(mouseX, mouseY)) {
-        if (i === BAR_MAP) {
-          {
-            gameObjects[BAR_MAP].start();
-
-            for (let i = 0; i < 5; i++) {
-              gameObjects[i].stopAndHide();
-            }
-            // gameObjects[BAR_LOGO].stopAndHide();
-            // gameObjects[RESTAURANT_LOGO].stopAndHide();
-            // gameObjects[OFFICE_LOGO].stopAndHide();
-            // gameObjects[SCHOOL_LOGO].stopAndHide();
-
-            // Select the element with id "theDIV"
-            let x = document.getElementById("game_menu");
-
-            if (x.style.display != "none") {
-              // Show the hidden element
-              x.style.display = "none";
-            }
-
-            let y = document.getElementById("bar_menu");
-
-            if (y.style.display === "none") {
-              // Show the hidden element
-              y.style.display = "block";
-
-              gameObjects[JEAN_PIERRE].start();
-
-              gameObjects[SOPHIE].start();
-            }
-          }
-        }
+      for (let i = 0; i < 5; i++){
+        gameObjects[i].start();
       }
-    }
-  });
 
-  let button = document.getElementById("unpauseGame");
-  button.addEventListener("click", function () {
-    for (let i = 0; i < 5; i++) {
-      gameObjects[i].start();
-    }
-    audio.pause();
-    audio = new Audio("music/start_menu_music.wav");
-    audio.play();
-    gameObjects[BAR_MAP].stopAndHide();
-    gameObjects[SOPHIE].stopAndHide();
-    gameObjects[JEAN_PIERRE].stopAndHide();
+      gameObjects[BAR_MAP].stopAndHide();
+      gameObjects[SOPHIE].stopAndHide();
+      gameObjects[JEAN_PIERRE].stopAndHide();
 
-    let x = document.getElementById("game_menu");
+      let x = document.getElementById('game_menu');
 
-    if (x.style.display === "none") {
-      // Show the hidden element
-      x.style.display = "block";
-    }
+      if (x.style.display === "none"){
+        x.style.display = "block";
+      }
+      
+      let y = document.getElementById("bar_menu");
 
-    let y = document.getElementById("bar_menu");
+      if (y.style.display != "none"){
+        y.style.display = "none";
+      }
+    })
 
-    if (y.style.display != "none") {
-      // Show the hidden element
-      y.style.display = "none";
-    }
-  });
 }
