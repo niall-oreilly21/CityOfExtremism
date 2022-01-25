@@ -81,7 +81,7 @@ function playGame()
     portoMapBackgroundImage,
     0,
     0,
-    canvas.width - 200,
+    canvas.width,
     canvas.height
   );
 
@@ -107,7 +107,7 @@ function playGame()
     barMap,
     0,
     0,
-    canvas.width - 200,
+    canvas.width,
     canvas.height
   );
 
@@ -222,6 +222,8 @@ function playGame()
       audio = new Audio("music/start_menu_music.wav");
       audio.play();
 
+      gameObjects[TIMER].stop();
+      
       for (let i = 0; i < 5; i++){
         gameObjects[i].start();
       }
