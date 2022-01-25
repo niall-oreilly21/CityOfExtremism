@@ -150,7 +150,7 @@ function playGame()
   document.getElementById("gameCanvas").addEventListener("click", function (e) {
     audio.pause();
     audio = new Audio("music/bar_music.wav");
-    audio.loop = true;
+    //audio.loop = true;
     audio.play();
     let canvasBoundingRectangle = document
       .getElementById("gameCanvas")
