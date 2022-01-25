@@ -15,6 +15,15 @@ portoMapBackgroundImage.src = "images/porto_map.png";
 let schoolLogo = new Image();
 schoolLogo.src = "images/school_logo.png"
 
+let restaurantLogo = new Image();
+schoolLogo.src = "images/restaurant_logo.png"
+
+let barLogo = new Image();
+schoolLogo.src = "images/bar_logo.png"
+
+let officeLogo = new Image()
+office.src = "images/station_logo.png"
+
 let barMap = new Image();
 barMap.src = "images/bar.png"
 
@@ -24,12 +33,15 @@ barMan.src = "images/jean_pierre.png"
 let sophie = new Image()
 sophie.src = "images/sophie.png"
 
+
+
 const BACKGROUND = 0;
 const WIN_LOSE_MESSAGE = 1;
 const MAP_LOGOS = 2;
 const BAR_MAP = 3;
 const JEAN_PIERRE =  4;
 const SOPHIE = 5;
+const OFFICE_LOGO = 6;
 /* Instead of using gameObject[], we can declare our own gameObject variables */
 
 /******************* END OF Declare game specific data and functions *****************/
@@ -193,6 +205,8 @@ let button = document.getElementById("unpauseGame")
     {
         console.log("HERE")
         gameObjects[BAR_MAP].stopAndHide();
+        gameObjects[SOPHIE].stopAndHide();
+        gameObjects[JEAN_PIERRE].stopAndHide();
         gameObjects[BACKGROUND].start();
 
 
