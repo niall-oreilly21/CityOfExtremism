@@ -32,6 +32,18 @@ sophie.src = "images/sophie.png";
 let speechBubble = new Image();
 speechBubble.src = "images/speech_bubble_left_side.png";
 
+let newspaper = new Image()
+newspaper.src = "images/newspaper.png"
+
+let tv = new Image()
+tv.src = "images/tv.png"
+
+let postit = new Image()
+postit.src = "images/postit.png"
+
+let board = new Image()
+board.src = "images/board.png"
+
 const BACKGROUND = 0;
 const OFFICE_LOGO = 1;
 const RESTAURANT_LOGO = 2;
@@ -46,6 +58,10 @@ const SPEECH_BUBBLE = 9;
 const TEXT_SOPHIE = 10;
 
 const TIMER = 11;
+const NEWSPAPER = 12
+const TV = 13
+const POSTIT = 14
+const BOARD = 15
 /* Instead of using gameObject[], we can declare our own gameObject variables */
 
 /******************* END OF Declare game specific data and functions *****************/
@@ -125,6 +141,15 @@ function playGame()
 
   gameObjects[TIMER] =  new Timer(60, 200,200, "Arial", 40,"blue")
 
+  gameObjects[NEWSPAPER] = new StaticImage(newspaper, 700, 440, 80, 80)
+
+  gameObjects[TV] = new StaticImage(tv, 430, 165, 258, 258)
+
+  gameObjects[POSTIT] = new StaticImage(postit, 485, 500, 50, 50)
+
+  gameObjects[BOARD] = new StaticImage(board, 835, 370, 120, 120)
+
+
   var audio = new Audio("music/start_menu_music.wav");
   audio.play();
 
@@ -140,6 +165,14 @@ function playGame()
   gameObjects[SPEECH_BUBBLE].stopAndHide();
 
   gameObjects[JEAN_PIERRE].stopAndHide();
+
+  gameObjects[NEWSPAPER].stopAndHide()
+
+  gameObjects[TV].stopAndHide()
+
+  gameObjects[POSTIT].stopAndHide()
+
+  gameObjects[BOARD].stopAndHide()
 
   gameObjects[SOPHIE].stopAndHide();
   let x = document.getElementById("bar_menu");
@@ -185,6 +218,14 @@ function playGame()
             gameObjects[JEAN_PIERRE].start();
 
             gameObjects[SOPHIE].start();
+
+            gameObjects[NEWSPAPER].start();
+
+            gameObjects[TV].start();
+
+            gameObjects[POSTIT].start();
+
+            gameObjects[BOARD].start();
           }
         }
 
