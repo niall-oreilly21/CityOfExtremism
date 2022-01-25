@@ -136,8 +136,6 @@ function playGame()
   /* Always play the game */
   game.start();
 
-  gameObjects[TIMER].stopAndHide()
-
   gameObjects[BAR_MAP].stopAndHide();
   gameObjects[SPEECH_BUBBLE].stopAndHide();
 
@@ -150,8 +148,11 @@ function playGame()
   document.getElementById("gameCanvas").addEventListener("click", function (e) {
     audio.pause();
     audio = new Audio("music/bar_music.wav");
+    
     //audio.loop = true;
     audio.play();
+
+    gameObjects[TIMER].startInterval()
     let canvasBoundingRectangle = document
       .getElementById("gameCanvas")
       .getBoundingClientRect();

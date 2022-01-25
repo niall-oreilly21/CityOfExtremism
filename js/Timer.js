@@ -20,8 +20,12 @@ class Timer extends GameObject {
     ctx.font = this.fontSize + "px " + this.font;
     this.width = ctx.measureText(this.timer).width;
 
-    this.timeInterval = setInterval(this.countDown.bind(this), 1000);
+    this.timeInterval;
     
+  }
+
+  startInterval() {
+    this.timeInterval = setInterval(this.countDown.bind(this), 1000);
   }
 
 
@@ -31,6 +35,7 @@ class Timer extends GameObject {
 
     if (this.timer === 0) {
       clearInterval(this.timeInterval)
+      this.stop()
     }
   }
 
