@@ -44,6 +44,10 @@ postit.src = "images/postit.png"
 let board = new Image()
 board.src = "images/board.png"
 
+
+let station = new Image()
+station.src = "images/police_office_scene.png"
+
 const BACKGROUND = 0;
 const OFFICE_LOGO = 1;
 const RESTAURANT_LOGO = 2;
@@ -62,6 +66,7 @@ const NEWSPAPER = 12
 const TV = 13
 const POSTIT = 14
 const BOARD = 15
+const STATION = 16
 /* Instead of using gameObject[], we can declare our own gameObject variables */
 
 /******************* END OF Declare game specific data and functions *****************/
@@ -91,6 +96,11 @@ function playGame()
   );
 
   gameObjects[BAR_LOGO] = new StaticImage(barLogo, 150, 150, 65, 90);
+
+  gameObjects[STATION] = new StaticImage(station,  0,
+    0,
+    canvas.width,
+    canvas.height);
 
   gameObjects[SCHOOL_LOGO] = new StaticImage(schoolLogo, 230, 230, 65, 90);
   gameObjects[BACKGROUND] = new StaticImage(
@@ -163,7 +173,7 @@ function playGame()
   
   gameObjects[BAR_MAP].stopAndHide();
   gameObjects[SPEECH_BUBBLE].stopAndHide();
-
+  gameObjects[STATION].stopAndHide();
   gameObjects[JEAN_PIERRE].stopAndHide();
   gameObjects[TIMER].pauseTimer();
 
@@ -178,6 +188,9 @@ function playGame()
   gameObjects[SOPHIE].stopAndHide();
   let x = document.getElementById("bar_menu");
   x.style.display = "none";
+
+  let k = document.getElementById("station_menu");
+  k.style.display = "none";
 
   document.getElementById("gameCanvas").addEventListener("click", function (e) {
     audio.pause();
@@ -195,6 +208,33 @@ function playGame()
 
     for (let i = 0; i < gameObjects.length; i++) {
       if (gameObjects[i].pointIsInsideBoundingRectangle(mouseX, mouseY)) {
+        
+
+        if (i === OFFICE_LOGO) {
+          audio.pause();
+          gameObjects[STATION].start();
+          for (let i = 0; i < 5; i++) {
+            gameObjects[i].stopAndHide();
+          }
+
+          // Select the element with id "theDIV"
+          let x = document.getElementById("station_menu");
+
+          if (x.style.display === "none") {
+            // Show the hidden element
+            x.style.display = "block";
+          }
+          
+
+          let y = document.getElementById("bar_menu");
+
+          if (y.style.display != "none") {
+            // Show the hidden element
+            y.style.display = "none";
+
+          }}
+
+
         if (i === BAR_LOGO) {
           gameObjects[BAR_MAP].start();
           gameObjects[TIMER].startInterval()
@@ -208,6 +248,13 @@ function playGame()
           if (x.style.display != "none") {
             // Show the hidden element
             x.style.display = "none";
+          }
+
+          let k = document.getElementById("station_menu");
+
+          if (k.style.display != "none") {
+            // Show the hidden element
+            k.style.display = "none";
           }
 
           let y = document.getElementById("bar_menu");
@@ -301,6 +348,55 @@ function playGame()
       if (y.style.display != "none"){
         y.style.display = "none";
       }
+
+      let k = document.getElementById("station_menu");
+
+      if (k.style.display != "none"){
+ 
+        k.style.display = "none";
+      }
+    })
+
+
+    let button2 = document.getElementById("backToGame")
+    button2.addEventListener("click", function ()
+    {
+      audio.pause();
+      audio = new Audio("music/start_menu_music.wav");
+      audio.play();
+
+      gameObjects[TIMER].pauseTimer();
+
+      
+      for (let i = 0; i < 5; i++){
+        gameObjects[i].start();
+      }
+
+      gameObjects[BAR_MAP].stopAndHide();
+      gameObjects[SOPHIE].stopAndHide();
+      gameObjects[JEAN_PIERRE].stopAndHide();
+      gameObjects[NEWSPAPER].stopAndHide()
+
+      gameObjects[TV].stopAndHide()
+
+      gameObjects[POSTIT].stopAndHide()
+
+      gameObjects[BOARD].stopAndHide()
+
+      let x = document.getElementById('game_menu');
+
+      if (x.style.display === "none"){
+        x.style.display = "block";
+      }
+      
+      let y = document.getElementById("station_menu");
+
+      if (y.style.display != "none"){
+        y.style.display = "none";
+
+        gameObjects[STATION].stopAndHide()
+      }
+
     })
 
 }

@@ -35,7 +35,7 @@
     <div id="gameContainer">
       <!-- having a container will allow us to have a game that includes elements that are outside of the canvas -->
       <canvas id="gameCanvas" tabindex="1"></canvas>
-      <div id="game_menu"></div>
+    <div id="game_menu"></div>
       <!-- Pause Menu -->
       <div id="bar_menu">
         <div id="leftButton">
@@ -48,18 +48,32 @@
             </a>
           </li>
         </div>
-
-        <div id="rightButton">
-          <li>
-            <a
-              href="javascript:void(0)"
-              id="unpauseGame"
-              class="button unpauseGame"
-              >Accuse
-            </a>
-          </li>
-        </div>
       </div>
+
+        <div id="station_menu">
+          <div id="leftButton">
+            <li>
+              <a
+                href="javascript:void(0)"
+                id="backToGame"
+                class="button unpauseGame"
+                >Back to Map
+              </a>
+            </li>
+          </div>
+  
+          <div id="rightButton">
+            <li>
+              <a
+                href="javascript:void(0)"
+                id="stationMenu"
+                class="button stationMenu"
+                >Accuse
+              </a>
+            </li>
+          </div>
+
+        </div>
 
       <!-- ***************************************************************************** -->
       <!-- *************** THE CODE BELOW CAN BE DIFFERENT FOR EACH GAME *************** -->
