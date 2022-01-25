@@ -69,6 +69,12 @@ function playGame()
     gameObjects[SOPHIE] =  new StaticImage(sophie, 300, 365, 200, 290);
     
   
+    const timer = new Timer();
+    
+    timer.startIntervalTimer();
+
+
+    
     /* END OF game specific code. */
 
 
@@ -140,59 +146,11 @@ function playGame()
         
     });
 
-
-let seconds = 0;
-let minutes = 3;
-let intervalTimer;
-let intervalTime = 1000;
-
-
-//Timer is 3 minutes long
-let totalSeconds = 180;
-
-    if(seconds > 9)
-    {
-        ctx.fillText(` ${minutes}:${seconds}  `, 200, 80)  
-    }
-    else
-    {
-        ctx.fillText(` ${minutes}:0${seconds}  `, 200, 80)  
-    }
-    
-    console.log(seconds)
-
-    startIntervalTimer
-    function startIntervalTimer() 
-    {
-    
-        // Store a handle to the timer 
-        intervalTimer = setInterval(intervalFunction, intervalTime);
-    }
-
-    function intervalFunction() 
-    {
-        totalSeconds--;
-        minutes = Math.floor(totalSeconds / 60);
-        seconds = totalSeconds % 60;
-
-        if(seconds === 0)
-        {
-            console.log("HELLo")
-        }
-        stopIntervalTimer(); 
-    }
-
-    
-    function stopIntervalTimer() 
-    {
-        // Stop the interval timer
-        clearInterval(intervalTimer);    
-    }
+   
 
 let button = document.getElementById("unpauseGame")
     button.addEventListener("click", function ()
     {
-        console.log("HERE")
         gameObjects[BAR_MAP].stopAndHide();
         gameObjects[BACKGROUND].start();
 
