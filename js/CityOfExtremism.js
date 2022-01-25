@@ -282,6 +282,13 @@ function playGame()
       gameObjects[BAR_MAP].stopAndHide();
       gameObjects[SOPHIE].stopAndHide();
       gameObjects[JEAN_PIERRE].stopAndHide();
+      gameObjects[NEWSPAPER].stopAndHide()
+
+      gameObjects[TV].stopAndHide()
+
+      gameObjects[POSTIT].stopAndHide()
+
+      gameObjects[BOARD].stopAndHide()
 
       let x = document.getElementById('game_menu');
 
