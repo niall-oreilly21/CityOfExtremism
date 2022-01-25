@@ -19,16 +19,25 @@ class Timer extends GameObject {
 
     ctx.font = this.fontSize + "px " + this.font;
     this.width = ctx.measureText(this.timer).width;
-
     this.timeInterval;
     
   }
 
-  startInterval() {
+  startTimer()
+  {
+    super.gameObjectIsDisplayed = false;
+  }
+  startInterval() 
+  {
     this.timeInterval = setInterval(this.countDown.bind(this), 1000);
+    super.gameObjectIsDisplayed = true;
   }
 
-
+  pauseTimer()
+  {
+      clearInterval(this.timeInterval);
+      super.gameObjectIsDisplayed = false;
+  }
   countDown()
   {
     this.timer--;
@@ -44,5 +53,6 @@ class Timer extends GameObject {
     ctx.fillStyle = this.colour;
     ctx.font = this.fontSize + "px " + this.font;
     ctx.fillText(this.timer, this.x, this.y);
+    
   }
 }

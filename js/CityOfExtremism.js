@@ -123,8 +123,9 @@ function playGame()
     100
   );
 
-  gameObjects[TIMER] =  new Timer(60, 200,200, "Arial", 40,"blue")
+  gameObjects[TIMER] =  new Timer(60, 950,100, "Arial", 100,"white")
 
+ 
   var audio = new Audio("music/start_menu_music.wav");
   audio.play();
 
@@ -135,12 +136,12 @@ function playGame()
 
   /* Always play the game */
   game.start();
-
+  
   gameObjects[BAR_MAP].stopAndHide();
   gameObjects[SPEECH_BUBBLE].stopAndHide();
 
   gameObjects[JEAN_PIERRE].stopAndHide();
-
+  gameObjects[TIMER].pauseTimer();
   gameObjects[SOPHIE].stopAndHide();
   let x = document.getElementById("bar_menu");
   x.style.display = "none";
@@ -152,7 +153,7 @@ function playGame()
     //audio.loop = true;
     audio.play();
 
-    gameObjects[TIMER].startInterval()
+    
     let canvasBoundingRectangle = document
       .getElementById("gameCanvas")
       .getBoundingClientRect();
@@ -163,7 +164,7 @@ function playGame()
       if (gameObjects[i].pointIsInsideBoundingRectangle(mouseX, mouseY)) {
         if (i === BAR_LOGO) {
           gameObjects[BAR_MAP].start();
-
+          gameObjects[TIMER].startInterval()
           for (let i = 0; i < 5; i++) {
             gameObjects[i].stopAndHide();
           }
@@ -187,28 +188,36 @@ function playGame()
             gameObjects[SOPHIE].start();
           }
         }
-
+        let clickSophie = 1;
         if (gameObjects[SOPHIE].isDisplayed()) {
           if (i === SOPHIE) {
-            console.log("HERE");
+           
+            if(clickSophie <= 0)
+            {
+              gameObjects[SPEECH_BUBBLE].start();
 
-            gameObjects[SPEECH_BUBBLE].start();
+              gameObjects[TEXT_SOPHIE] = new StaticText(
+                "I saw a boy the other day",
+                380,
+                400,
+                "Algerian",
+                20,
+                "orange"
+              );
+  
+              gameObjects[TEXT_SOPHIE].start();
+  
+              setTimeout(() => {
+                gameObjects[SPEECH_BUBBLE].stopAndHide();
+                gameObjects[TEXT_SOPHIE].stopAndHide();
+              }, 3000);
+  
+              clickSophie--;
 
-            gameObjects[TEXT_SOPHIE] = new StaticText(
-              "I saw a boy the other day",
-              380,
-              400,
-              "Algerian",
-              20,
-              "orange"
-            );
+              console.log(clickSophie)
+            }
+            
 
-            gameObjects[TEXT_SOPHIE].start();
-
-            setTimeout(() => {
-              gameObjects[SPEECH_BUBBLE].stopAndHide();
-              gameObjects[TEXT_SOPHIE].stopAndHide();
-            }, 3000);
           }
         }
       }
@@ -222,7 +231,8 @@ function playGame()
       audio = new Audio("music/start_menu_music.wav");
       audio.play();
 
-      gameObjects[TIMER].stop();
+      gameObjects[TIMER].pauseTimer();
+
       
       for (let i = 0; i < 5; i++){
         gameObjects[i].start();
