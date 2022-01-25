@@ -33,7 +33,8 @@ barMan.src = "images/jean_pierre.png"
 let sophie = new Image()
 sophie.src = "images/sophie.png"
 
-
+let speechBubbles = new Image()
+speechBubbles.src = "images/speech_bubble_left_side.png"
 
 const BACKGROUND = 0;
 const OFFICE_LOGO = 1;
@@ -77,7 +78,7 @@ function playGame()
 
     gameObjects[BAR_LOGO] =  new StaticImage(barLogo, 150, 150, 65, 90);
     
-    gameObjects[SCHOOL_LOGO] = new StaticImage(schoolLogo, 200, 200, 65, 90);
+    gameObjects[SCHOOL_LOGO] = new StaticImage(schoolLogo, 230, 230, 65, 90);
 
     gameObjects[RESTAURANT_LOGO] = new StaticImage(restaurantLogo, 300, 300, 65, 90);
 
