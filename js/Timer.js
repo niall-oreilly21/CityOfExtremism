@@ -28,8 +28,16 @@ class Timer extends GameObject {
     this.timer--;
     console.log(this.timer);
 
+<<<<<<< HEAD
     if (this.timer === 0) {
       this.stop();
+=======
+    if (timer === 0) 
+    {
+      console.log("HELLo");
+      timer = 0;
+      this.stopIntervalTimer();
+>>>>>>> 9e309418ee8b54a8e3b81bec10bfc1fc94e46b9e
     }
   }
 
