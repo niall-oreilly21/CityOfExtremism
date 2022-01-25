@@ -276,12 +276,11 @@ function playGame()
             gameObjects[BOARD].start();
           }
         }
-        let clickSophie = 1;
+
         if (gameObjects[SOPHIE].isDisplayed()) {
           if (i === SOPHIE) {
            
-            if(clickSophie <= 0)
-            {
+
               gameObjects[SPEECH_BUBBLE].start();
 
               gameObjects[TEXT_SOPHIE] = new StaticText(
@@ -299,11 +298,6 @@ function playGame()
                 gameObjects[SPEECH_BUBBLE].stopAndHide();
                 gameObjects[TEXT_SOPHIE].stopAndHide();
               }, 3000);
-  
-              clickSophie--;
-
-              console.log(clickSophie)
-            }
             
 
           }
