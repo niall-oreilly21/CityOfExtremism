@@ -292,7 +292,7 @@ function playGame()
               gameObjects[SPEECH_BUBBLE].start();
 
               gameObjects[TEXT_SOPHIE] = new StaticText(
-                "I saw a boy the other day",
+                "He never gets it right!!",
                 380,
                 400,
                 "Algerian",
