@@ -48,6 +48,9 @@ board.src = "images/board.png"
 let station = new Image()
 station.src = "images/police_office_scene.png"
 
+let newspaperClue = new Image()
+newspaperClue.src = "images/newspaperzoom.png"
+
 const BACKGROUND = 0;
 const OFFICE_LOGO = 1;
 const RESTAURANT_LOGO = 2;
@@ -67,6 +70,7 @@ const TV = 13
 const POSTIT = 14
 const BOARD = 15
 const STATION = 16
+const NEWSPAPER_CLUE = 17
 /* Instead of using gameObject[], we can declare our own gameObject variables */
 
 /******************* END OF Declare game specific data and functions *****************/
@@ -159,6 +163,7 @@ function playGame()
 
   gameObjects[BOARD] = new StaticImage(board, 835, 370, 120, 120)
 
+  gameObjects[NEWSPAPER_CLUE] = new StaticImage(newspaperClue, 300, 70, 500, 500)
 
   var audio = new Audio("music/start_menu_music.wav");
   audio.play();
@@ -184,6 +189,8 @@ function playGame()
   gameObjects[POSTIT].stopAndHide()
 
   gameObjects[BOARD].stopAndHide()
+
+  gameObjects[NEWSPAPER_CLUE].stopAndHide()
 
   gameObjects[SOPHIE].stopAndHide();
   let x = document.getElementById("bar_menu");
@@ -303,6 +310,19 @@ function playGame()
 
           }
         }
+
+        if (gameObjects[NEWSPAPER].isDisplayed()) {
+          if (i === NEWSPAPER) {
+              gameObjects[NEWSPAPER_CLUE].start();
+    
+              setTimeout(() => {
+                gameObjects[NEWSPAPER_CLUE].stopAndHide();
+              }, 3000);
+            
+              
+          }
+        }
+
       }
     }
   });
