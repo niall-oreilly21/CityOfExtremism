@@ -10,6 +10,14 @@
   column-gap: 30px;
 }
 
+body
+{
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 #gameContainer
 {
     /* style the gameContainer if the game includes non-canvas elements */
