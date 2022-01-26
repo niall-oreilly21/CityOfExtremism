@@ -12,7 +12,23 @@ body
     background-size: cover; 
 }
 
+.endingText
+{
+    text-align: center;
+}
 
+.ending
+{
+    background-color: white;
+}
+
+.center
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 .container
 {
